@@ -8,36 +8,43 @@ body {
 }
 
 
+
 .image-container {
-    width: 1050px; 
+    width: 100%; 
+    max-width: 1050px; 
     height: 450px; 
     background-image: url('Source/22.avif'); 
     background-size: cover; 
     background-position: center; 
-    
     background-repeat: no-repeat; 
-    border: 2px solid #000; 
-    border-radius: 30px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    margin-left: 120px;
-    margin-right: 20px;
-  }
+    border: 3px solid #333;
+    border-radius: 25px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    margin: 20px auto; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.image-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
   
 
 header {
     background: #333;
     color: #fff;
     padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    list-style: none;
-    margin: 0;
-    padding: 0;
     align-items: center;
-    height: 42px;
+    height: 60px;
 }
 .name{
     font-size: 20px;
@@ -131,10 +138,13 @@ button:hover {
 
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background: #333;
     color: #fff;
-
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px; 
 }
 
 
@@ -292,4 +302,75 @@ body.dark-mode .features {
 }
 .contact a:hover {
     text-decoration:line-through;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .options {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .navbar.responsive .options {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: #333;
+        width: 100%;
+    }
+}
+
+/* Cart Styles */
+.cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #386ca4;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.cart-modal {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: none;
+    width: 300px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
 }
